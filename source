@@ -1,0 +1,163 @@
+/*
+ * Author: Tammy Molina
+ *Class: CMSC140 
+ * Instructor: Professor Tsai
+ * Project 2
+ * Description: This program converts celsius to fahrenheit, kilometers to miles, and kilograms to pounds. This program is useful 
+ for Americans who are on vacation abroad who need help converting units from the metric system to the imperial system. 
+ * Due Date: 10/7/18
+ * I pledge that I have completed the programming assignment independently.
+   I have not copied the code from a student or any source.
+   I have not given my code to any student.
+   Print your Name here: Tammy Molina
+
+ List of Input for the program:
+  1. country name
+  2. menu choice
+  3. celsius
+  4. kilometer
+  5. kilograms
+
+
+ * List of Output from the program:
+  1. Complete script
+  2. Conversion of celsius to fahrenheit, kilometer to miles, and kilograms to pounds
+  3. Error message when user enters a choice outside of numbers 1-4
+  4. Error message when user enters negative a negative number for kilometer or kilograms
+  5. My name as the programmer
+  6. Project number
+  7. Due date
+
+
+ * Pseudocode or Algorithm for the program:
+
+ 1.	Declare variables
+ 2.	Cout “enter a country name”
+ 3.	getline countryName
+ 4.	cout converter Toolkit Menu choices/options
+ 5.	cout “enter your choice”
+ 6.	cin choice
+ 7.	if choice == 1
+	cout “enter temperature in celsius”
+	cin celsius
+	convert to Fahrenheit and cout conversion
+ 8.	else if choice == 2
+	cout “enter distance in kilometer”
+	cin kilometer
+	if (kilometer < 0)
+		cout “Program does not convert negative distance”
+	else convert to miles and cout conversion
+ 9.	else if choice == 3
+	cout “enter weight in kilograms”
+	cin kilograms
+		if (kilograms < 0)
+			cout “Program does not convert negative weight”
+		else convert to pounds and cout conversion
+ 10.else if choice == 4
+		cout “you have ended the program”
+ 11.else if choice < 1 or choice > 4
+	cout “please enter a number  1 – 4”
+ 12. cout ending messages (thank you, programmer name, class, project number)
+
+*/
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	// defining variables
+	string countryName;
+	int choice;
+	int celsius;
+	float kilometer;
+	float kilograms;
+	int fahrenheit;
+	float miles;
+	float pounds;
+	string programmerName = "Tammy Molina";
+	int projectNumber = 2;
+	string dueDate = "10/7/2018";
+
+	// get country name 
+	cout << "Enter a country name: ";
+	getline(cin, countryName);
+
+	// display menu options and get a choice
+	cout << "\n\nConverter Tootlkit\n"
+		<< "--------------------------\n"
+		<< "1. Temperature Converter\n"
+		<< "2. Distance Converter\n"
+		<< "3. Weight Converter\n"
+		<< "4. Quit "
+		<< endl; 
+
+	cout << "\nEnter your choice (1-4): "; 
+	cin >> choice;
+
+	// respond to the user's menu selection
+	if (choice == 1)
+	{
+		cout << "Please enter temperature in Celsius (such as 24): ";
+		cin >> celsius;
+		fahrenheit = ((celsius * 1.8) + 32);
+		cout << "It is " << fahrenheit << " degrees in Fahrenheit.\n\n";
+		
+	}
+	else if (choice == 2)
+	{
+		cout << "Please enter distance in Kilometer (such as 18.54): ";
+		cin >> kilometer;
+			if (kilometer < 0)
+			{
+				cout << "!!! Program does not convert negative distance !!!\n\n";
+			}
+			else
+			{
+				miles = kilometer * 0.6;
+				cout << "It is " << fixed << showpoint << setprecision(2) << miles << " miles.\n\n";
+			}
+
+	}
+	else if (choice == 3)
+	{
+		cout << "Please enter weight in kilograms: ";
+		cin >> kilograms;
+			if (kilograms < 0)
+			{
+				cout << "!!! Program does not convert negative weight !!!\n\n";
+			}
+			else
+			{
+				pounds = kilograms * 2.2;
+				cout << "It is " << fixed << showpoint << setprecision(1) << pounds << " pounds.\n\n";
+			}
+
+	}
+	else if (choice == 4)
+	{
+		cout << "You have quit the program.\n\n";
+	}
+	else if (choice < 1 || choice > 4)
+	{
+		cout << "Please enter a number 1-4.\n\n";
+	}
+
+	// display ending messages 
+	cout << countryName << " sounds fun!\n\n";
+
+	cout << "\nThank you for testing my program!\n"
+		<< "PROGRAMMER: "
+		<< programmerName
+		<< "\nCMSC140 Common Project "
+		<< projectNumber
+		<< endl
+		<< "Due Date: "
+		<< dueDate
+		<< endl;
+
+	system("pause");
+	return 0;
+}
